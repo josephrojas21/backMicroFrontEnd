@@ -29,6 +29,11 @@ export class DeliveryCategoriesController {
         return this.deliveryCategoriesService.getdeliveryCategoriesById(params.id);
     }
 
+    @Get('/getWorkshopsById/:id')
+    getWorkshopsById(@Param() params): Object{
+        return this.deliveryCategoriesService.getWorkshopsById(params.id);
+    }
+
     @Post('/saveApointment')
     async saveApointment(@Res() resp: Response, @Req() req: Request){
 

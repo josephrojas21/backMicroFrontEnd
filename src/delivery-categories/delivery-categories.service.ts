@@ -20,6 +20,18 @@ export class DeliveryCategoriesService {
 
             data2.map((dataTable, index) => {
                 jsonTable[0].rows.push({
+                    //AGRAGADOS PARA HACER POST GUARDAR
+                    acreedor: dataTable.acreedor ? dataTable.acreedor : ' ',
+                    nombre_acreedor: dataTable.nombre_acreedor ? dataTable.nombre_acreedor : ' ',
+                    direccion: dataTable.direccion ? dataTable.direccion : ' ',
+                    correo_electronico: dataTable.correo_electronico ? dataTable.correo_electronico : ' ',
+                    campana_orden: dataTable.campana_orden ? dataTable.campana_orden : ' ',
+                    version: dataTable.version ? dataTable.version : ' ',
+                    usuario: dataTable.usuario ? dataTable.usuario : ' ',
+                    fecha_entrega: dataTable.fecha_entrega ? dataTable.fecha_entrega : ' ',
+                    categoria_stock: dataTable.categoria_stock ? dataTable.categoria_stock : 'MALA',
+                    faseProve: dataTable.faseProve ? dataTable.faseProve : ' ',
+                    //FIN DE AGREGADOS
                    Fecha: this.dateFormat(dataTable.fecha_entrega),
                    DocCompra: dataTable.doc_compra ? dataTable.doc_compra : ' ',
                    OrdenFab: dataTable.orden_fabricacion ? parseInt(dataTable.orden_fabricacion) : ' ',
@@ -30,9 +42,14 @@ export class DeliveryCategoriesService {
                    DescOrdenPedido: dataTable.usuario ? 'Resp.Pedido: ' + dataTable.usuario : ' ',
                    Order: index
                 })
+
                 jsonTable[1].Details.push(
                    dataTable.DETALLE
                 )
+
+                jsonTable[1].Workshops.push(
+                    dataTable.TALLERES 
+                 )   
              })
             return jsonTable
            
@@ -50,6 +67,10 @@ export class DeliveryCategoriesService {
     getdeliveryCategoriesById(id: number): Object{
         return jsonTable[1].Details[id];
     }
+
+    getWorkshopsById(id: number): Object {
+        return jsonTable[1].Workshops[id];
+     }
 
     async saveApointment(dataApointment: any){
         try { 

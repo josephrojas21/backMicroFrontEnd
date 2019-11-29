@@ -46,10 +46,13 @@ export const jsonTable = [
           }  
        ],
        rows: [] 
-    }, 
+    },
     {
-       Details: []
-    }
+       Details: [],
+       Workshops: []
+       
+    }         
+ 
  ]
 
  export const jsonApointments =[
@@ -64,6 +67,18 @@ export const jsonTable = [
 
          },
          {
+            label: 'Fecha Creacion',
+            field: 'FechaCreacion',
+            sort: 'asc',
+            width: 270
+         },
+         {
+            label: 'Transportador',
+            field: 'Transportador',
+            sort: 'asc',
+            width: 100
+         },
+         {
             label: 'Fecha recogida',
             field: 'FechaRecogida',
             sort: 'asc',
@@ -74,12 +89,6 @@ export const jsonTable = [
             field: 'HoraRecogida',
             sort: 'asc',
             width: 200
-         },
-         {
-            label: 'Transportadora',
-            field: 'Transportadora',
-            sort: 'asc',
-            width: 100
          },
          {
             label: 'Documentos',
